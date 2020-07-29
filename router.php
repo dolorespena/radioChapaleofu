@@ -4,7 +4,7 @@
     $router = new Router();
 
     // Tabla de ruteo
-    $router->addRoute('comentarios', 'GET', 'CommentApiController', 'getComments');
+    $router->addRoute('home', 'GET', 'HomeController', 'showHome');
 
     //ruteo
     $router->route($_REQUEST['resource'], $_SERVER['REQUEST_METHOD']);
