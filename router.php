@@ -1,19 +1,10 @@
 <?php
 
-    // definimos la base url de forma dinamica
-    define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
+    // creo el ruteador
+    $router = new Router();
 
-    // define una acción por defecto
-    if (empty($_GET['action'])) {
-        $_GET['action'] = 'columnistas';
-    } 
+    // Tabla de ruteo
+    $router->addRoute('comentarios', 'GET', 'CommentApiController', 'getComments');
 
-    // toma la acción que viene del usuario y parsea los parámetros
-    $accion = $_GET['action']; 
-    $parametros = explode('/', $accion);
-
-    // decide que camino tomar según TABLA DE RUTEO
-    switch ($parametros[0]) {
-
-
-    }
+    //ruteo
+    $router->route($_REQUEST['resource'], $_SERVER['REQUEST_METHOD']);
