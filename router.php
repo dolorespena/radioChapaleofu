@@ -6,7 +6,7 @@
 
     // define una acción por defecto
     if (empty($_GET['action'])) {
-        $_GET['action'] = 'columnistas';
+        $_GET['action'] = 'home';
     } 
 
     // toma la acción que viene del usuario y parsea los parámetros
@@ -16,6 +16,11 @@
     // decide que camino tomar según TABLA DE RUTEO
     switch ($parametros[0]) {
 
-
+       case 'home':
+            if (empty($parametros[1])){
+                $controller = new HomeController;
+                $controller->showHome();
+            }
+       break; 
 
     }
