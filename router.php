@@ -1,10 +1,21 @@
 <?php
 
-    // creo el ruteador
-    $router = new Router();
 
-    // Tabla de ruteo
-    $router->addRoute('home', 'GET', 'HomeController', 'showHome');
+    // definimos la base url de forma dinamica
+    define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
-    //ruteo
-    $router->route($_REQUEST['resource'], $_SERVER['REQUEST_METHOD']);
+    // define una acción por defecto
+    if (empty($_GET['action'])) {
+        $_GET['action'] = 'columnistas';
+    } 
+
+    // toma la acción que viene del usuario y parsea los parámetros
+    $accion = $_GET['action']; 
+    $parametros = explode('/', $accion);
+
+    // decide que camino tomar según TABLA DE RUTEO
+    switch ($parametros[0]) {
+
+
+
+    }
