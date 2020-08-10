@@ -1,5 +1,6 @@
 <?php
-
+    require_once 'controllers/homeController.php';
+    require_once 'controllers/newsController.php';
 
     // definimos la base url de forma dinamica
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -22,5 +23,12 @@
                 $controller->showHome();
             }
        break; 
+
+       case 'noticias':
+            if (empty($parametros[1])){
+                $controller = new NewsController;
+                $controller->showNews();
+            }
+       break;
 
     }

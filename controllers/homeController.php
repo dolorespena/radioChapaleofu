@@ -14,7 +14,6 @@ class HomeController{
     }
 
     public function showHome(){
-
         $this->view->showHome();
     }
 }
